@@ -10,6 +10,8 @@ export class CharDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
+  
 
 }

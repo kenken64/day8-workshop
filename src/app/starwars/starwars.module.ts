@@ -9,7 +9,7 @@ import { CharDetailsComponent } from './character/details/details.component'
 import { FilmsDetailsComponent } from './films/details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StarwarapiService } from '../services/starwarapi.service';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import {
   MatAutocompleteModule,
@@ -51,6 +51,7 @@ import {
 
 import {PlatformModule} from '@angular/cdk/platform';
 import {ObserversModule} from '@angular/cdk/observers';
+import { HeaderComponent } from './header/header.component';
 
 const routes = [
   {
@@ -58,24 +59,14 @@ const routes = [
     component: CategoryComponent,
   },
   {
-    path: 'categoryitems',
+    path: 'categoryitems/:name',
     component: CategoryItemsComponent,
-    children: [ 
-      {
-        path: 'character/:id',
-        component: CharDetailsComponent
-      },
-      {
-        path: 'films/:id',
-        component: FilmsDetailsComponent
-      }
-    ]
   },
   {
     path: '', 
     redirectTo: '/Home', 
     pathMatch: 'full' 
-},
+  },
 ]
 
 /**
@@ -129,7 +120,8 @@ const routes = [
     CategoryComponent,
     CategoryItemsComponent,
     CharDetailsComponent,
-    FilmsDetailsComponent
+    FilmsDetailsComponent,
+    HeaderComponent
   ],
   providers: [
     StarwarapiService
@@ -138,7 +130,9 @@ const routes = [
     CategoryComponent,
     CategoryItemsComponent,
     CharDetailsComponent,
-    FilmsDetailsComponent
+    FilmsDetailsComponent,
+    HeaderComponent,
+    RouterModule
   ]
 })
 export class StarwarsModule {}

@@ -22,4 +22,9 @@ export class StarwarapiService {
     console.log("get categories ...");
     return this.http.get('https://swapi.co/api/');
   }
+
+  getCategoryItems(name): Observable<any>{
+    console.log("get category items ...");
+    return this.http.get(`https://swapi.co/api/${name}/`);
+  }
 }

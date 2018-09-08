@@ -15,7 +15,7 @@ import { StarwarsModule } from './starwars/starwars.module';
     BrowserModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    StarwarsModule
+    StarwarsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
