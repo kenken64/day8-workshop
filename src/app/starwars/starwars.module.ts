@@ -5,8 +5,7 @@ import {NgModule} from '@angular/core';
 
 import { CategoryComponent } from './category/category.component'
 import { CategoryItemsComponent } from './category/categoryitems.component';
-import { CharDetailsComponent } from './character/details/details.component'
-import { FilmsDetailsComponent } from './films/details/details.component';
+import { DetailsComponent } from './category/details.component'
 import { HttpClientModule } from '@angular/common/http';
 import { StarwarapiService } from '../services/starwarapi.service';
 import { RouterModule } from '@angular/router';
@@ -61,6 +60,10 @@ const routes = [
   {
     path: 'categoryitems/:name',
     component: CategoryItemsComponent,
+  },
+  {
+    path: 'details/:url',
+    component: DetailsComponent,
   },
   {
     path: '', 
@@ -119,8 +122,7 @@ const routes = [
   declarations: [
     CategoryComponent,
     CategoryItemsComponent,
-    CharDetailsComponent,
-    FilmsDetailsComponent,
+    DetailsComponent,
     HeaderComponent
   ],
   providers: [
@@ -129,8 +131,7 @@ const routes = [
   exports: [
     CategoryComponent,
     CategoryItemsComponent,
-    CharDetailsComponent,
-    FilmsDetailsComponent,
+    DetailsComponent,
     HeaderComponent,
     RouterModule
   ]

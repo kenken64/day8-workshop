@@ -1,30 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Hide } from "../models/hide.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StarwarapiService {
 
-  constructor(private http: HttpClient) { }
+  static UNKNOWN_HIDE = new Hide(false);
 
-  categories = [
-    { id: 1, name: "Characters"},
-    { id: 2, name: "Films"},
-    { id: 3, name: "Species"},
-    { id: 4, name: "Starship"},
-    { id: 5, name: "Vehicles"},
-    { id: 6, name: "Planets"}
-  ];
+  hidden$: BehaviorSubject<Hide> = new BehaviorSubject<Hide>(StarwarapiService.UNKNOWN_HIDE);
+  
+  constructor(private http: HttpClient) { }
 
   getCategories(): Observable<any>{
     console.log("get categories ...");
     return this.http.get('https://swapi.co/api/');
   }
 
+  hide(toHide){
+    console.log("update the behaviour subject");
+    this.hidden$.next(new Hide(toHide));
+  }
+
   getCategoryItems(name): Observable<any>{
     console.log("get category items ...");
     return this.http.get(`https://swapi.co/api/${name}/`);
+  }
+
+  getDetails(url): Observable<any>{
+    console.log("get category items ...");
+    return this.http.get(url);
   }
 }

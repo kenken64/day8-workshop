@@ -1,0 +1,15 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{cardName}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{recordId}}" alt="Star Wars">
+    <mat-card-content>
+      <p *ngFor="let detailKey of resultKeys">
+        <b>{{detailKey | uppercase}}</b> : {{resultMap.get(detailKey)}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">SHARE</button>
+    </mat-card-actions>
+</mat-card>

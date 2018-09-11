@@ -1,3 +1,4 @@
+<mat-spinner *ngIf="!showSpinner" style="margin:0 auto;"></mat-spinner>
 <mat-list>
   <mat-list-item *ngFor="let category of categories">
     <p mat-line><a [routerLink]="['/categoryitems', category.key]">{{ category.key }}</a></p>

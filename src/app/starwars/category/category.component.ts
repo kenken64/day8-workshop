@@ -10,11 +10,12 @@ import { Category } from '../../models/category.model';
 })
 export class CategoryComponent implements OnInit {
   categories = [];
-
+  showSpinner = false;
   constructor(private swSvc: StarwarapiService) { }
 
   ngOnInit() {
     console.log("init");
+    
     this.swSvc
       .getCategories()
       .subscribe((data)=>{
@@ -23,6 +24,7 @@ export class CategoryComponent implements OnInit {
         keysArr.forEach((keyValue)=>{
           let category = new Category(keyValue, data[keyValue]);
           this.categories.push(category);
+          this.showSpinner = true;
         })
         console.log(keysArr);
         //this.categories = keysArr;

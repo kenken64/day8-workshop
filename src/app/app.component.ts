@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import 'hammerjs';
 
 @Component({
@@ -9,4 +8,9 @@ import 'hammerjs';
 })
 export class AppComponent {
   title = 'day8-workshop';
+
+  constructor(){
+    
+    
+  }
 }

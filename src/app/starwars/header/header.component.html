@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Star Wars</span>
+    <span>The Star Wars App</span>
     <span class="example-fill-remaining-space"></span>
-    <span><button mat-icon-button><mat-icon>arrow_back_ios</mat-icon></button></span>
+    <span *ngIf="hideBackButton?.isHidden()"><button mat-icon-button (click)="onBack()"><mat-icon>arrow_back_ios</mat-icon></button></span>
   </mat-toolbar-row>
 </mat-toolbar>

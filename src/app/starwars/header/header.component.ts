@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Location } from '@angular/common';
+import { StarwarapiService } from '../../services/starwarapi.service'
+import { Hide } from '../../models/hide.model';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  currentUrl: string;
+  hideBackButton: Hide;
+  constructor(private swSvc: StarwarapiService, private _location: Location) { }
 
   ngOnInit() {
+    this.swSvc.hidden$.subscribe(hide =>  this.hideBackButton = hide);
+  }
+
+  onBack(){
+    this._location.back();
   }
 
 }

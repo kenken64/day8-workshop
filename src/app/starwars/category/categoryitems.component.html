@@ -1,6 +1,13 @@
-<mat-list>
-    <mat-list-item *ngFor="let item of categoryItems">
-      <p mat-line>{{ item.name }}</p>
+<mat-spinner *ngIf="!showSpinner" style="margin:0 auto;"></mat-spinner>
+<mat-list *ngIf="categoryItems?.length > 0" >
+    <mat-list-item>
+      <mat-chip-list>
+      <mat-chip color="accent" selected>{{ categoryName | uppercase}}</mat-chip>  
+      </mat-chip-list>
       <mat-divider></mat-divider>
     </mat-list-item>
-  </mat-list>
+    <mat-list-item *ngFor="let item of categoryItems">
+      <p mat-line><a [routerLink]="['/details', item.url ]">{{ item.name }}</a></p>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>
