@@ -10,6 +10,11 @@
           "/index.html",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css?family=Roboto",
+          "https://fonts.googleapis.com/icon?family=Material+Icons",
+          "https://fonts.gstatic.com/**"
         ]
       }
     }, {
@@ -21,6 +26,20 @@
           "/assets/**"
         ]
       }
-    }
-  ]
+    }],
+    "dataGroups": [
+      {
+        "name": "posts",
+        "urls": [
+          "https://swapi.co/api/**",
+          "https://starwars-visualguide.com/assets/img/**"
+        ],
+        "cacheConfig": {
+          "maxSize": 5,
+          "maxAge": "6h",
+          "timeout": "10s",
+          "strategy": "freshness"
+        }
+      }
+    ]  
 }
